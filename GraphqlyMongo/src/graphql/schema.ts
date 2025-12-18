@@ -63,3 +63,4 @@ export const typeDefs = gql`
     freePokemon(ownedPokemonId: ID!): Trainer!
   }
 `;
+

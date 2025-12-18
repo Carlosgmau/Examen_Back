@@ -11,6 +11,9 @@ export type TrainerDB = {
 
 const COLLECTION = "trainers";
 
+
+// Se crea un entrenador, se puede buscra por nombre y luego por su id, y como último añadirle un pokemon o quitarselo
+
 export const createTrainer = async (name: string, password: string) => {
   const db = getDB();
 
@@ -39,6 +42,7 @@ export const createTrainer = async (name: string, password: string) => {
 
 
 
+
 export const findTrainerByName = async (name: string) => {
   return getDB()
     .collection<TrainerDB>(COLLECTION)
@@ -47,11 +51,14 @@ export const findTrainerByName = async (name: string) => {
 
 
 
+
+
 export const findTrainerById = async (id: string) => {
   return getDB()
     .collection<TrainerDB>(COLLECTION)
     .findOne({ _id: new ObjectId(id) });
 };
+
 
 
 
@@ -66,6 +73,8 @@ export const addPokemonToTrainer = async (
       { $push: { team: ownedId } as any } 
     );
 };
+
+
 
 
 

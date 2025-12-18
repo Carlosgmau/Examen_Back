@@ -40,3 +40,5 @@ export const getUserFromToken = async (authHeader?: string | null) => {
     { projection: { password: 0 } }
   );
 };
+
+

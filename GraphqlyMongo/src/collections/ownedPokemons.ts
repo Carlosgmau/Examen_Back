@@ -13,7 +13,6 @@ export type OwnedPokemonDB = {
 };
 
 
-
 const COLLECTION = "ownedPokemons";
 
 // Para generaar el número aleatorio y que se elijan las estadísticas
@@ -21,6 +20,7 @@ const COLLECTION = "ownedPokemons";
 const rand = () => Math.floor(Math.random() * 100) + 1;
 
 
+// Crear un pk que pertenezca a un entrenador, buscarlo mediante el entrenador  o por su id y luego que te permita borrarlo
 
 export const createOwnedPokemon = async (
   pokemonId: ObjectId,
@@ -36,6 +36,7 @@ export const createOwnedPokemon = async (
     level: 1
   };
 
+
   const res = await getDB().collection(COLLECTION).insertOne(owned as any);
   return { ...owned, _id: res.insertedId };
 };
@@ -48,6 +49,8 @@ export const findOwnedByTrainer = async (trainerId: ObjectId) => {
     .find({ trainer: trainerId })
     .toArray();
 };
+
+
 
 
 export const findOwnedById = async (id: string) => {

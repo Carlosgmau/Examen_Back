@@ -14,12 +14,13 @@ export type PokemonDB = {
 
 const COLLECTION = "pokemons";
 
-
+// pokemoms.ts tiene  crear Pokemon, Hacer la lista y encontrar un pokemon por su id
 
 export const createPokemon = async (input: Omit<PokemonDB, "_id">) => {
   const res = await getDB().collection(COLLECTION).insertOne(input as any);
   return { ...input, _id: res.insertedId };
 };
+
 
 
 

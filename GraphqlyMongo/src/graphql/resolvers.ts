@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import { ObjectId } from "mongodb";
 import { signToken } from "../auth";
+
 import {
   createTrainer,
   findTrainerByName,
@@ -8,17 +9,20 @@ import {
   addPokemonToTrainer,
   removePokemonFromTrainer
 } from "../collections/trainers";
+
+
 import {
   createPokemon,
   listPokemons,
   findPokemonById
 } from "../collections/pokemons";
+
 import {
   createOwnedPokemon,
   findOwnedByTrainer,
   findOwnedById,
-  deleteOwnedPokemon
-} from "../collections/ownedPokemons";
+  deleteOwnedPokemon,
+} from "../collections/ownedPokemons.js";
 
 
 
@@ -90,5 +94,6 @@ export const resolvers = {
       findPokemonById(parent.pokemon.toString())
   }
 };
+
 
 
